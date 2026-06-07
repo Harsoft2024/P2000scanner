@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacybeleid — P2000 Scanner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap');
+
+  :root {
+    --green: #00ff00;
+    --green-dim: #006600;
+    --green-dark: #003300;
+    --bg: #000000;
+    --bg2: #0a0a0a;
+    --bg3: #111111;
+    --text: #cccccc;
+    --text-dim: #666666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Scanline effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,0,0.015) 2px,
+      rgba(0,255,0,0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  header {
+    border-bottom: 1px solid var(--green-dim);
+    padding: 2rem;
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    animation: scan 3s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    border: 1px solid var(--green-dim);
+    padding: 2px 8px;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--green);
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(0,255,0,0.3);
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 1px;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .last-updated {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    padding: 8px 12px;
+    border-left: 2px solid var(--green-dim);
+    background: var(--bg3);
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--bg3);
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid var(--green-dim);
+    position: relative;
+  }
+
+  section:hover {
+    border-left-color: var(--green);
+    transition: border-left-color 0.3s;
+  }
+
+  h2 {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    color: var(--green);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h2::before {
+    content: '▶';
+    font-size: 10px;
+    opacity: 0.7;
+  }
+
+  p { margin-bottom: 0.75rem; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    list-style: none;
+    margin: 0.5rem 0 0.75rem 0;
+  }
+
+  ul li {
+    padding: 4px 0 4px 1.2rem;
+    position: relative;
+    color: var(--text);
+  }
+
+  ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--green-dim);
+  }
+
+  .highlight {
+    background: var(--green-dark);
+    border: 1px solid var(--green-dim);
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--green);
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green-dim);
+    transition: border-color 0.2s;
+  }
+
+  a:hover { border-color: var(--green); }
+
+  footer {
+    border-top: 1px solid #1a1a1a;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="badge">OFFICIEEL DOCUMENT</div>
+    <h1>P2000 SCANNER</h1>
+    <div class="subtitle">PRIVACYBELEID // PRIVACY POLICY</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="last-updated">LAATSTE WIJZIGING: JUNI 2025</div>
+
+  <section>
+    <h2>INLEIDING</h2>
+    <p>Dit privacybeleid beschrijft hoe de P2000 Scanner app omgaat met uw gegevens. Wij hechten groot belang aan uw privacy en zijn transparant over welke informatie wordt gebruikt.</p>
+    <div class="highlight">
+      P2000 Scanner verzamelt geen persoonlijke gegevens en slaat geen gebruikersinformatie op externe servers op.
+    </div>
+  </section>
+
+  <section>
+    <h2>WELKE GEGEVENS WORDEN GEBRUIKT</h2>
+    <p>De app maakt gebruik van de volgende informatie:</p>
+    <ul>
+      <li>Openbare P2000 alarmeerfeeds van alarmeringen.nl</li>
+      <li>Door u ingevoerde plaatsnaam voor locatiefiltering (alleen lokaal opgeslagen)</li>
+      <li>Uw regio-selectie (alleen lokaal opgeslagen op uw apparaat)</li>
+    </ul>
+    <p>Al deze gegevens worden uitsluitend lokaal op uw apparaat verwerkt en worden nooit naar externe servers verzonden.</p>
+  </section>
+
+  <section>
+    <h2>LOCATIEGEGEVENS</h2>
+    <p>P2000 Scanner vraagt <strong>geen</strong> toegang tot de GPS-locatie van uw apparaat. De locatiefiltering werkt uitsluitend op basis van de door u handmatig ingevoerde plaatsnaam.</p>
+  </section>
+
+  <section>
+    <h2>INTERNETVERBINDING</h2>
+    <p>De app maakt verbinding met het internet voor de volgende doeleinden:</p>
+    <ul>
+      <li>Ophalen van de openbare P2000 RSS-feed van alarmeringen.nl</li>
+      <li>Verwerken van in-app aankopen via Google Play</li>
+    </ul>
+    <p>Er worden geen persoonlijke gegevens meegestuurd bij deze verbindingen.</p>
+  </section>
+
+  <section>
+    <h2>IN-APP AANKOPEN</h2>
+    <p>De Pro-versie van P2000 Scanner is beschikbaar als eenmalige in-app aankoop via Google Play. Alle betaalgegevens worden uitsluitend verwerkt door Google Play. Wij ontvangen geen betaalgegevens van gebruikers.</p>
+  </section>
+
+  <section>
+    <h2>GEGEVENS VAN DERDEN</h2>
+    <p>De app maakt gebruik van de volgende externe diensten:</p>
+    <ul>
+      <li><strong>alarmeringen.nl</strong> — openbare P2000 alarmeerdata</li>
+      <li><strong>Google Play Billing</strong> — verwerking van in-app aankopen</li>
+      <li><strong>Android Text-to-Speech</strong> — spraaksynthese op uw apparaat</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>BEVEILIGING</h2>
+    <p>Omdat P2000 Scanner geen persoonlijke gegevens verzamelt of opslaat op externe servers, is er geen risico op datalekken van gebruikersinformatie.</p>
+  </section>
+
+  <section>
+    <h2>WIJZIGINGEN</h2>
+    <p>Wij behouden ons het recht voor dit privacybeleid te wijzigen. Bij ingrijpende wijzigingen wordt u geïnformeerd via een update in de Google Play Store.</p>
+  </section>
+
+  <section>
+    <h2>CONTACT</h2>
+    <p>Heeft u vragen over dit privacybeleid? Neem dan contact op via de Google Play Store pagina van P2000 Scanner.</p>
+  </section>
+
+</main>
+
+<footer>
+  P2000 SCANNER // PRIVACYBELEID // © 2025
+</footer>
+
+</body>
+</html>
