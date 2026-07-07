@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2000 Scanner — Jouw eigen politiescanner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap');
+
+  :root {
+    --green: #00ff00;
+    --green-dim: #006600;
+    --green-dark: #003300;
+    --amber: #ffaa00;
+    --red: #ff4444;
+    --bg: #000000;
+    --bg2: #0a0a0a;
+    --bg3: #111111;
+    --text: #cccccc;
+    --text-dim: #555555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Scanline overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,0,0.012) 2px,
+      rgba(0,255,0,0.012) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .scanner-face {
+    width: min(380px, 90vw);
+    background: var(--bg3);
+    border: 2px solid var(--green-dim);
+    border-radius: 6px;
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0,255,0,0.08), inset 0 0 60px rgba(0,0,0,0.5);
+    margin-bottom: 2.5rem;
+  }
+
+  /* Blinking status light */
+  .status-light {
+    width: 10px;
+    height: 10px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--green);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.15; }
+  }
+
+  .scanner-brand {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* Scrolling frequency display */
+  .freq-display {
+    background: #000;
+    border: 1px solid var(--green-dark);
+    border-radius: 3px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    position: relative;
+    height: 52px;
+  }
+
+  .freq-display::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    animation: scan-line 2s linear infinite;
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .freq-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--green);
+    white-space: nowrap;
+    animation: scroll-text 18s linear infinite;
+    display: inline-block;
+  }
+
+  @keyframes scroll-text {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Discipline LEDs */
+  .leds {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .led {
+    flex: 1;
+    text-align: center;
+    padding: 4px 2px;
+    border-radius: 3px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+  }
+
+  .led.bw  { color: #ff6666; border-color: #660000; animation: pulse-bw  2.1s ease-in-out infinite; }
+  .led.amb { color: #ffcc44; border-color: #665500; animation: pulse-amb 3.3s ease-in-out infinite; }
+  .led.pol { color: #6699ff; border-color: #003366; animation: pulse-pol 2.7s ease-in-out infinite; }
+  .led.knrm{ color: #00ccff; border-color: #004455; animation: pulse-knrm 4.0s ease-in-out infinite; }
+
+  @keyframes pulse-bw  { 0%,100%{opacity:.4} 50%{opacity:1;box-shadow:0 0 6px #ff4444} }
+  @keyframes pulse-amb { 0%,100%{opacity:.3} 50%{opacity:1;box-shadow:0 0 6px #ffcc00} }
+  @keyframes pulse-pol { 0%,100%{opacity:.4} 50%{opacity:1;box-shadow:0 0 6px #4488ff} }
+  @keyframes pulse-knrm{ 0%,100%{opacity:.3} 50%{opacity:1;box-shadow:0 0 6px #00ccff} }
+
+  /* Volume/squelch knobs (decorative) */
+  .knobs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .knob-group {
+    text-align: center;
+  }
+
+  .knob {
+    width: 36px;
+    height: 36px;
+    background: radial-gradient(circle at 35% 35%, #333, #111);
+    border-radius: 50%;
+    border: 2px solid #333;
+    margin: 0 auto 4px;
+    position: relative;
+  }
+
+  .knob::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: var(--green-dim);
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+  }
+
+  .knob-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .speaker-grille {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 6px 8px;
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 3px;
+  }
+
+  .grille-row {
+    display: flex;
+    gap: 3px;
+  }
+
+  .grille-dot {
+    width: 4px;
+    height: 4px;
+    background: #222;
+    border-radius: 50%;
+  }
+
+  /* Hero text */
+  .hero-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    color: var(--green);
+    letter-spacing: 3px;
+    text-shadow: 0 0 30px rgba(0,255,0,0.4);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--green-dark);
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: background 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+  }
+
+  .cta-btn:hover {
+    background: #005500;
+    box-shadow: 0 0 20px rgba(0,255,0,0.2);
+  }
+
+  /* ── FEATURES ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--green-dim);
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature {
+    background: var(--bg3);
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid var(--green-dim);
+    padding: 1.25rem 1.5rem;
+    transition: border-left-color 0.2s;
+  }
+
+  .feature:hover {
+    border-left-color: var(--green);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--green);
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* ── PRO BLOCK ── */
+  .pro-block {
+    background: var(--bg3);
+    border: 1px solid #332200;
+    border-left: 3px solid var(--amber);
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 860px;
+  }
+
+  .pro-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+  }
+
+  .pro-title {
+    font-size: 1.5rem;
+    color: var(--amber);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .pro-price {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+  }
+
+  .pro-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pro-features li {
+    font-size: 15px;
+    color: var(--text);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .pro-features li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-size: 10px;
+    top: 4px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 0 2rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid #111;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  footer a {
+    color: var(--green-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  footer a:hover {
+    color: var(--green);
+    border-color: var(--green-dim);
+  }
+
+  @media (max-width: 480px) {
+    .features { grid-template-columns: 1fr; }
+    .pro-block { margin: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="scanner-face">
+    <div class="status-light"></div>
+    <div class="scanner-brand">HARSOFT // P2000-RX</div>
+
+    <div class="freq-display">
+      <span class="freq-text">● BRANDWEER Amsterdam — Prio 1 — Woningbrand Keizersgracht &nbsp;&nbsp;&nbsp; ● AMBULANCE Utrecht — Prio 1 — A1 Maliesingel &nbsp;&nbsp;&nbsp; ● POLITIE Rotterdam — Prio 2 — Overlast Blaak &nbsp;&nbsp;&nbsp;</span>
+    </div>
+
+    <div class="leds">
+      <div class="led bw">BRW</div>
+      <div class="led amb">AMB</div>
+      <div class="led pol">POL</div>
+      <div class="led knrm">KNRM</div>
+    </div>
+
+    <div class="knobs">
+      <div class="knob-group">
+        <div class="knob"></div>
+        <div class="knob-label">VOL</div>
+      </div>
+      <div class="speaker-grille">
+        <div class="grille-row">
+          <div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div>
+        </div>
+        <div class="grille-row">
+          <div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div>
+        </div>
+        <div class="grille-row">
+          <div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div><div class="grille-dot"></div>
+        </div>
+      </div>
+      <div class="knob-group">
+        <div class="knob"></div>
+        <div class="knob-label">SQL</div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="hero-title">P2000 SCANNER</h1>
+  <p class="hero-sub">Jouw eigen politiescanner. Luister live mee met de Nederlandse hulpdiensten.</p>
+  <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.harry.p2000scanner">
+    ▶ Download op Google Play
+  </a>
+</section>
+
+<hr class="divider">
+
+<!-- ── FEATURES ── -->
+<section class="section">
+  <div class="section-label">FUNCTIES</div>
+  <h2 class="section-title">Wat doet de scanner?</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">📡</div>
+      <div class="feature-title">LIVE P2000</div>
+      <div class="feature-desc">Directe meldingen van het Nederlandse P2000 netwerk — brandweer, ambulance, politie en KNRM.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔊</div>
+      <div class="feature-title">SPRAAKMELDING</div>
+      <div class="feature-desc">Elk incident wordt automatisch voorgelezen. Precies zoals een echte scanner — maar dan in duidelijk Nederlands.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🗺️</div>
+      <div class="feature-title">REGIO & FILTER</div>
+      <div class="feature-desc">Kies je eigen regio of scan het hele land. Filter op discipline of prioriteit P1.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔋</div>
+      <div class="feature-title">ALTIJD ACTIEF</div>
+      <div class="feature-desc">De scanner blijft draaien op de achtergrond, ook met het scherm uit.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── PRO ── -->
+<section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <div class="pro-block">
+    <div class="pro-label">⭐ PRO VERSIE</div>
+    <div class="pro-title">Zet de scanner op scherp</div>
+    <div class="pro-price">Eenmalige aankoop — €2,99</div>
+    <ul class="pro-features">
+      <li>Terugluisteren — mis nooit meer een melding</li>
+      <li>Locatiefilter — scan alleen rond jouw stad of dorp</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>P2000 SCANNER &nbsp;//&nbsp; HARSOFT &nbsp;// &nbsp;© 2025</p>
+  <p style="margin-top: 8px;">
+    <a href="https://harsoft2024.github.io/P2000scanner/privacy.html">Privacybeleid</a>
+  </p>
+</footer>
+
+</body>
+</html>
