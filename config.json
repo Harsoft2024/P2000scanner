@@ -1,5 +1,5 @@
 {
-  "versie": 1,
+  "versie": 2,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -16,23 +16,60 @@
     "afhijsen",
     "tco",
     "mknn",
-    "pac"
+    "pac",
+    "dp6"
   ],
   "typePatronen": [
-    { "patroon": "stank/hind. lucht", "type": "stankoverlast" },
-    { "patroon": "stank/hind", "type": "stankoverlast" },
-    { "patroon": "stankoverlast", "type": "stankoverlast" },
-    { "patroon": "geuroverlast", "type": "stankoverlast" },
-    { "patroon": "brandmelding woning", "type": "woningbrand" },
-    { "patroon": "brandmelding buiten", "type": "buitenbrand" },
-    { "patroon": "brandmelding bedrijf", "type": "bedrijfsbrand" },
-    { "patroon": "brandmelding", "type": "brand" },
-    { "patroon": "ass. ambu", "type": "assistentie ambulance" },
-    { "patroon": "oms brandmelding", "type": "automatische brandmelding" }
+    {
+      "patroon": "stank/hind. lucht",
+      "type": "stankoverlast"
+    },
+    {
+      "patroon": "stank/hind",
+      "type": "stankoverlast"
+    },
+    {
+      "patroon": "stankoverlast",
+      "type": "stankoverlast"
+    },
+    {
+      "patroon": "geuroverlast",
+      "type": "stankoverlast"
+    },
+    {
+      "patroon": "brandmelding woning",
+      "type": "woningbrand"
+    },
+    {
+      "patroon": "brandmelding buiten",
+      "type": "buitenbrand"
+    },
+    {
+      "patroon": "brandmelding bedrijf",
+      "type": "bedrijfsbrand"
+    },
+    {
+      "patroon": "brandmelding",
+      "type": "brand"
+    },
+    {
+      "patroon": "ass. ambu",
+      "type": "assistentie ambulance"
+    },
+    {
+      "patroon": "oms brandmelding",
+      "type": "automatische brandmelding"
+    },
+    {
+      "patroon": "vws",
+      "type": "voorwaardescheppende inzet"
+    }
   ],
   "plaatsnaamAfkortingen": {
     "sgrav": "s-gravenhage",
     "rdam": "rotterdam",
-    "adam": "amsterdam"
+    "adam": "amsterdam",
+    "rott": "rotterdam",
+    "nootdp": "nootdorp"
   }
 }
