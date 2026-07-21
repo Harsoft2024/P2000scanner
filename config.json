@@ -1,0 +1,38 @@
+{
+  "versie": 1,
+  "ruisPatronen": [
+    "stank/hind",
+    "lucht",
+    "woning",
+    "brandmelding",
+    "incidentkanaal",
+    "meldkamer",
+    "noord-nederland",
+    "noord nederland",
+    "nacontrole",
+    "buitensluiting",
+    "dienstverlening",
+    "tilassistentie",
+    "afhijsen",
+    "tco",
+    "mknn",
+    "pac"
+  ],
+  "typePatronen": [
+    { "patroon": "stank/hind. lucht", "type": "stankoverlast" },
+    { "patroon": "stank/hind", "type": "stankoverlast" },
+    { "patroon": "stankoverlast", "type": "stankoverlast" },
+    { "patroon": "geuroverlast", "type": "stankoverlast" },
+    { "patroon": "brandmelding woning", "type": "woningbrand" },
+    { "patroon": "brandmelding buiten", "type": "buitenbrand" },
+    { "patroon": "brandmelding bedrijf", "type": "bedrijfsbrand" },
+    { "patroon": "brandmelding", "type": "brand" },
+    { "patroon": "ass. ambu", "type": "assistentie ambulance" },
+    { "patroon": "oms brandmelding", "type": "automatische brandmelding" }
+  ],
+  "plaatsnaamAfkortingen": {
+    "sgrav": "s-gravenhage",
+    "rdam": "rotterdam",
+    "adam": "amsterdam"
+  }
+}
