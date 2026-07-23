@@ -1,5 +1,5 @@
 {
-  "versie": 2,
+  "versie": 3,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -70,6 +70,15 @@
     "rdam": "rotterdam",
     "adam": "amsterdam",
     "rott": "rotterdam",
-    "nootdp": "nootdorp"
+    "nootdp": "nootdorp",
+    "burg": "burgemeester",
+    "pr": "prins",
+    "kon": "koningin",
+    "st": "sint",
+    "gen": "generaal",
+    "dr": "dokter",
+    "mr": "meester",
+    "prof": "professor",
+    "jhr": "jonkheer"
   }
 }
