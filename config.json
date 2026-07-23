@@ -1,5 +1,5 @@
 {
-  "versie": 4,
+  "versie": 5,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -80,6 +80,7 @@
     "dr": "dokter",
     "mr": "meester",
     "prof": "professor",
-    "jhr": "jonkheer"
+    "jhr": "jonkheer",
+    "krimij": "krimpen aan den ijssel"
   }
 }
