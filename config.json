@@ -1,5 +1,5 @@
 {
-  "versie": 11,
+  "versie": 12,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -20,7 +20,8 @@
     "dp6",
     "vws",
     "b2",
-    "dp4"
+    "dp4",
+    "nndwkzh"
   ],
   "typePatronen": [
     {
