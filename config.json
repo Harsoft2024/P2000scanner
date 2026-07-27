@@ -1,5 +1,5 @@
 {
-  "versie": 8,
+  "versie": 9,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -83,6 +83,7 @@
     "jhr": "jonkheer",
     "krimij": "krimpen aan den ijssel",
     "oegstg": "oegtgeest",
-    "wassnr": "wassenaar"
+    "wassnr": "wassenaar",
+    "leiddm": "leidschendam"
   }
 }
