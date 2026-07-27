@@ -1,5 +1,5 @@
 {
-  "versie": 7,
+  "versie": 8,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -82,6 +82,7 @@
     "prof": "professor",
     "jhr": "jonkheer",
     "krimij": "krimpen aan den ijssel",
-    "oegstg": "oegtgeest"
+    "oegstg": "oegtgeest",
+    "wassnr": "wassenaar"
   }
 }
