@@ -1,5 +1,5 @@
 {
-  "versie": 15,
+  "versie": 16,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -22,7 +22,11 @@
     "b2",
     "dp4",
     "nndwkzh",
-    "dp2"
+    "dp2",
+    "zeer groep",
+    "uitbr",
+    "intrekken alarm brw",
+    "intrekken alarm brandweer"
   ],
   "typePatronen": [
     {
@@ -68,6 +72,18 @@
     {
       "patroon": "vws",
       "type": "voorwaardescheppende inzet"
+    },
+    {
+      "patroon": "intrekken alarm brandweer",
+      "type": "intrekken brandweeralarm"
+    },
+    {
+      "patroon": "intrekken alarm brw",
+      "type": "intrekken brandweeralarm"
+    },
+    {
+      "patroon": "brandmelding bos",
+      "type": "bosbrand"
     }
   ],
   "plaatsnaamAfkortingen": {
