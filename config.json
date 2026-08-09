@@ -1,5 +1,5 @@
 {
-  "versie": 18,
+  "versie": 19,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -106,6 +106,7 @@
     "wassnr": "wassenaar",
     "leiddm": "leidschendam",
     "voorb": "voorburg",
-    "rijszh": "rijswijk"
+    "rijszh": "rijswijk",
+    "haastr": "haastrecht"
   }
 }
