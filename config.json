@@ -1,5 +1,5 @@
 {
-  "versie": 19,
+  "versie": 20,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -102,11 +102,15 @@
     "prof": "professor",
     "jhr": "jonkheer",
     "krimij": "krimpen aan den ijssel",
-    "oegstg": "oegtgeest",
+    "oegstg": "oegstgeest",
     "wassnr": "wassenaar",
     "leiddm": "leidschendam",
     "voorb": "voorburg",
     "rijszh": "rijswijk",
     "haastr": "haastrecht"
-  }
+  },
+  "straatBlacklist": [],
+  "serverEnabled": true,
+  "airbandAudioEnabled": true,
+  "serverHosts": []
 }
