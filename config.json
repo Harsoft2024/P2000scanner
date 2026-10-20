@@ -1,5 +1,5 @@
 {
-  "versie": 23,
+  "versie": 24,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -111,6 +111,18 @@
   },
   "straatBlacklist": [],
   "serverEnabled": true,
-  "airbandAudioEnabled": false,
-  "serverHosts": []
+  "serverHosts": [],
+  "semafoonBeschikbaar": false,
+  "audioKanalen": [
+    {
+      "id": 1,
+      "naam": "nood frequentie",
+      "aan": true
+    },
+    {
+      "id": 2,
+      "naam": "approach",
+      "aan": true
+    }
+  ]
 }
