@@ -1,5 +1,5 @@
 {
-  "versie": 22,
+  "versie": 23,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -111,6 +111,6 @@
   },
   "straatBlacklist": [],
   "serverEnabled": true,
-  "airbandAudioEnabled": true,
+  "airbandAudioEnabled": false,
   "serverHosts": []
 }
