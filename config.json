@@ -1,5 +1,5 @@
 {
-  "versie": 24,
+  "versie": 25,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -124,5 +124,12 @@
       "naam": "approach",
       "aan": true
     }
-  ]
+  ],
+  "melding": {
+    "id": "mmvhsylez",
+    "tekst": "test bericht",
+    "niveau": "info",
+    "doel": "alle",
+    "tot": "2026-10-21T07:39:00.000Z"
+  }
 }
