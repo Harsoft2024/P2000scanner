@@ -1,5 +1,5 @@
 {
-  "versie": 25,
+  "versie": 26,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -113,18 +113,6 @@
   "serverEnabled": true,
   "serverHosts": [],
   "semafoonBeschikbaar": false,
-  "audioKanalen": [
-    {
-      "id": 1,
-      "naam": "nood frequentie",
-      "aan": true
-    },
-    {
-      "id": 2,
-      "naam": "approach",
-      "aan": true
-    }
-  ],
   "melding": {
     "id": "mmvhsylez",
     "tekst": "test bericht",
