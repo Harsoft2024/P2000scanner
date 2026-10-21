@@ -1,5 +1,5 @@
 {
-  "versie": 34,
+  "versie": 35,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -115,7 +115,7 @@
   "semafoonBeschikbaar": false,
   "audioKanalen": [],
   "melding": {
-    "id": "mmvi5hazt",
+    "id": "mmvi8rsow",
     "tekst": "schietbourel",
     "niveau": "waarschuwing",
     "doel": "alle"
