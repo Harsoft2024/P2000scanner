@@ -1,5 +1,5 @@
 {
-  "versie": 27,
+  "versie": 28,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -113,10 +113,11 @@
   "serverEnabled": true,
   "serverHosts": [],
   "semafoonBeschikbaar": false,
-  "melding": {
-    "id": "mmvht76zp",
-    "tekst": "test bericht",
-    "niveau": "info",
-    "doel": "alle"
-  }
+  "audioKanalen": [
+    {
+      "id": 1,
+      "naam": "test",
+      "aan": true
+    }
+  ]
 }
