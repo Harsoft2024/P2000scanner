@@ -1,5 +1,5 @@
 {
-  "versie": 26,
+  "versie": 27,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -114,10 +114,9 @@
   "serverHosts": [],
   "semafoonBeschikbaar": false,
   "melding": {
-    "id": "mmvhsylez",
+    "id": "mmvht76zp",
     "tekst": "test bericht",
     "niveau": "info",
-    "doel": "alle",
-    "tot": "2026-10-21T07:39:00.000Z"
+    "doel": "alle"
   }
 }
