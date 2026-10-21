@@ -1,5 +1,5 @@
 {
-  "versie": 35,
+  "versie": 36,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -117,7 +117,7 @@
   "melding": {
     "id": "mmvi8rsow",
     "tekst": "schietbourel",
-    "niveau": "waarschuwing",
+    "niveau": "info",
     "doel": "alle"
   }
 }
