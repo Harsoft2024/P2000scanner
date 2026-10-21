@@ -1,5 +1,5 @@
 {
-  "versie": 36,
+  "versie": 37,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -113,11 +113,5 @@
   "serverEnabled": true,
   "serverHosts": [],
   "semafoonBeschikbaar": false,
-  "audioKanalen": [],
-  "melding": {
-    "id": "mmvi8rsow",
-    "tekst": "schietbourel",
-    "niveau": "info",
-    "doel": "alle"
-  }
+  "audioKanalen": []
 }
