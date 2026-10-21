@@ -1,5 +1,5 @@
 {
-  "versie": 31,
+  "versie": 32,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -126,9 +126,9 @@
     }
   ],
   "melding": {
-    "id": "mmvi5afip",
+    "id": "mmvi5hazt",
     "tekst": "schietbourel",
     "niveau": "waarschuwing",
-    "doel": "audio"
+    "doel": "alle"
   }
 }
