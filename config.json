@@ -1,5 +1,5 @@
 {
-  "versie": 32,
+  "versie": 33,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -113,18 +113,7 @@
   "serverEnabled": true,
   "serverHosts": [],
   "semafoonBeschikbaar": false,
-  "audioKanalen": [
-    {
-      "id": 1,
-      "naam": "tower 121.500",
-      "aan": true
-    },
-    {
-      "id": 2,
-      "naam": "test; 111.000",
-      "aan": true
-    }
-  ],
+  "audioKanalen": [],
   "melding": {
     "id": "mmvi5hazt",
     "tekst": "schietbourel",
