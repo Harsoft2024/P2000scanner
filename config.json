@@ -1,5 +1,5 @@
 {
-  "versie": 38,
+  "versie": 39,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -111,9 +111,13 @@
   },
   "straatBlacklist": [],
   "serverEnabled": true,
-  "serverHosts": [
-    "desktop-oaq191h.tail8bf899.ts.net"
-  ],
+  "serverHosts": [],
   "semafoonBeschikbaar": false,
-  "audioKanalen": []
+  "audioKanalen": [
+    {
+      "id": 1,
+      "naam": "tower",
+      "aan": true
+    }
+  ]
 }
