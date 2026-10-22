@@ -1,5 +1,5 @@
 {
-  "versie": 39,
+  "versie": 40,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -116,7 +116,7 @@
   "audioKanalen": [
     {
       "id": 1,
-      "naam": "tower",
+      "naam": "scanlist",
       "aan": true
     }
   ]
