@@ -1,5 +1,5 @@
 {
-  "versie": 40,
+  "versie": 41,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -119,5 +119,11 @@
       "naam": "scanlist",
       "aan": true
     }
-  ]
+  ],
+  "melding": {
+    "id": "mmvkovtvl",
+    "tekst": "Onderhoud aan de server, momenteel geen capcodes",
+    "niveau": "info",
+    "doel": "alle"
+  }
 }
