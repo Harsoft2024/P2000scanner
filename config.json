@@ -1,5 +1,5 @@
 {
-  "versie": 46,
+  "versie": 47,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -112,27 +112,5 @@
   "straatBlacklist": [],
   "serverEnabled": true,
   "serverHosts": [],
-  "semafoonBeschikbaar": false,
-  "audioKanalen": [
-    {
-      "id": 1,
-      "naam": "Tower",
-      "aan": true
-    },
-    {
-      "id": 2,
-      "naam": "Approach",
-      "aan": true
-    },
-    {
-      "id": 3,
-      "naam": "Maastricht radar",
-      "aan": true
-    },
-    {
-      "id": 4,
-      "naam": "Overige",
-      "aan": true
-    }
-  ]
+  "semafoonBeschikbaar": false
 }
