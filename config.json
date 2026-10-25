@@ -1,5 +1,5 @@
 {
-  "versie": 45,
+  "versie": 46,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -116,12 +116,22 @@
   "audioKanalen": [
     {
       "id": 1,
-      "naam": "tower",
+      "naam": "Tower",
       "aan": true
     },
     {
       "id": 2,
-      "naam": "testkanaal",
+      "naam": "Approach",
+      "aan": true
+    },
+    {
+      "id": 3,
+      "naam": "Maastricht radar",
+      "aan": true
+    },
+    {
+      "id": 4,
+      "naam": "Overige",
       "aan": true
     }
   ]
