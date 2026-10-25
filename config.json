@@ -1,5 +1,5 @@
 {
-  "versie": 49,
+  "versie": 50,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -112,12 +112,5 @@
   "straatBlacklist": [],
   "serverEnabled": true,
   "serverHosts": [],
-  "semafoonBeschikbaar": false,
-  "audioKanalen": [
-    {
-      "id": 1,
-      "naam": "Multi",
-      "aan": true
-    }
-  ]
+  "semafoonBeschikbaar": false
 }
