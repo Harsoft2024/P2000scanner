@@ -1,5 +1,5 @@
 {
-  "versie": 48,
+  "versie": 49,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -116,22 +116,7 @@
   "audioKanalen": [
     {
       "id": 1,
-      "naam": "Tower",
-      "aan": true
-    },
-    {
-      "id": 2,
-      "naam": "Approach",
-      "aan": true
-    },
-    {
-      "id": 3,
-      "naam": "Maastricht MUAC",
-      "aan": true
-    },
-    {
-      "id": 4,
-      "naam": "Overige",
+      "naam": "Multi",
       "aan": true
     }
   ]
