@@ -1,5 +1,5 @@
 {
-  "versie": 50,
+  "versie": 51,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -112,5 +112,11 @@
   "straatBlacklist": [],
   "serverEnabled": true,
   "serverHosts": [],
-  "semafoonBeschikbaar": false
+  "semafoonBeschikbaar": false,
+  "melding": {
+    "id": "mmvp20qcd",
+    "tekst": "Server uitgeschakeld, capcodes nu niet beschikbaar !!",
+    "niveau": "info",
+    "doel": "alle"
+  }
 }
