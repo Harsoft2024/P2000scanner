@@ -1,5 +1,5 @@
 {
-  "versie": 51,
+  "versie": 52,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -115,7 +115,7 @@
   "semafoonBeschikbaar": false,
   "melding": {
     "id": "mmvp20qcd",
-    "tekst": "Server uitgeschakeld, capcodes nu niet beschikbaar !!",
+    "tekst": "Capcodefilter is experimenteel !!!",
     "niveau": "info",
     "doel": "alle"
   }
