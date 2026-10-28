@@ -1,5 +1,5 @@
 {
-  "versie": 53,
+  "versie": 54,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -107,7 +107,8 @@
     "leiddm": "leidschendam",
     "voorb": "voorburg",
     "rijszh": "rijswijk",
-    "haastr": "haastrecht"
+    "haastr": "haastrecht",
+    "alphrn": "alphen aan den rijn"
   },
   "straatBlacklist": [],
   "serverEnabled": true,
