@@ -1,5 +1,5 @@
 {
-  "versie": 59,
+  "versie": 60,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -26,7 +26,8 @@
     "zeer groep",
     "uitbr",
     "intrekken alarm brw",
-    "intrekken alarm brandweer"
+    "intrekken alarm brandweer",
+    "icnum"
   ],
   "typePatronen": [
     {
