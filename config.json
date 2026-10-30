@@ -1,5 +1,5 @@
 {
-  "versie": 58,
+  "versie": 59,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -111,7 +111,8 @@
     "alphrn": "alphen aan den rijn",
     "naaldw": "naaldwijk",
     "zoetmr": "zoetermeer",
-    "bodegr": "bodegraven"
+    "bodegr": "bodegraven",
+    "sgravh": "s-gravenhage"
   },
   "straatBlacklist": [],
   "serverEnabled": true,
