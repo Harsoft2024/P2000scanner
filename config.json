@@ -1,5 +1,5 @@
 {
-  "versie": 60,
+  "versie": 61,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -85,6 +85,18 @@
     {
       "patroon": "brandmelding bos",
       "type": "bosbrand"
+    },
+    {
+      "patroon": "gev stoffen",
+      "type": "gevaarlijke stoffen"
+    },
+    {
+      "patroon": "gev. stoffen",
+      "type": "gevaarlijke stoffen"
+    },
+    {
+      "patroon": "gev.stoffen",
+      "type": "gevaarlijke stoffen"
     }
   ],
   "plaatsnaamAfkortingen": {
