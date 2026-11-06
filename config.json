@@ -1,5 +1,5 @@
 {
-  "versie": 62,
+  "versie": 63,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -97,6 +97,14 @@
     {
       "patroon": "gev.stoffen",
       "type": "gevaarlijke stoffen"
+    },
+    {
+      "patroon": "ass. politie",
+      "type": "assistentie aan politie"
+    },
+    {
+      "patroon": "ass. brandweer",
+      "type": "assistentie aan brandweer"
     }
   ],
   "plaatsnaamAfkortingen": {
