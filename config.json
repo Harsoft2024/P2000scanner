@@ -1,5 +1,5 @@
 {
-  "versie": 63,
+  "versie": 64,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -100,11 +100,11 @@
     },
     {
       "patroon": "ass. politie",
-      "type": "assistentie aan politie"
+      "type": "assistentie aan de politie"
     },
     {
       "patroon": "ass. brandweer",
-      "type": "assistentie aan brandweer"
+      "type": "assistentie aan de brandweer"
     }
   ],
   "plaatsnaamAfkortingen": {
