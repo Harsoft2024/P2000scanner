@@ -1,5 +1,5 @@
 {
-  "versie": 65,
+  "versie": 66,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -134,7 +134,8 @@
     "zoetmr": "zoetermeer",
     "bodegr": "bodegraven",
     "sgravh": "s-gravenhage",
-    "nwkoop": "nieuwkoop"
+    "nwkoop": "nieuwkoop",
+    "hazrdk": "hazerswoude rijndijk"
   },
   "straatBlacklist": [],
   "serverEnabled": true,
