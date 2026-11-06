@@ -1,5 +1,5 @@
 {
-  "versie": 64,
+  "versie": 65,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -133,7 +133,8 @@
     "naaldw": "naaldwijk",
     "zoetmr": "zoetermeer",
     "bodegr": "bodegraven",
-    "sgravh": "s-gravenhage"
+    "sgravh": "s-gravenhage",
+    "nwkoop": "nieuwkoop"
   },
   "straatBlacklist": [],
   "serverEnabled": true,
