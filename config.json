@@ -1,5 +1,5 @@
 {
-  "versie": 66,
+  "versie": 67,
   "ruisPatronen": [
     "stank/hind",
     "lucht",
@@ -105,6 +105,14 @@
     {
       "patroon": "ass. brandweer",
       "type": "assistentie aan de brandweer"
+    },
+    {
+      "patroon": "br woning",
+      "type": "woningbrand"
+    },
+    {
+      "patroon": "br container",
+      "type": "containerbrand"
     }
   ],
   "plaatsnaamAfkortingen": {
@@ -135,7 +143,8 @@
     "bodegr": "bodegraven",
     "sgravh": "s-gravenhage",
     "nwkoop": "nieuwkoop",
-    "hazrdk": "hazerswoude rijndijk"
+    "hazrdk": "hazerswoude rijndijk",
+    "nieuwerkerk ad ijssel": "nieuwerkerk aan den ijssel"
   },
   "straatBlacklist": [],
   "serverEnabled": true,
